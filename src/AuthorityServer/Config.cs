@@ -12,7 +12,9 @@ public static class Config
 
     public static IEnumerable<ApiScope> ApiScopes =>
         new ApiScope[]
-            { };
+        {
+            new ApiScope(name: "apiName", displayName: "apiDisplayName"),
+        };
 
     public static IEnumerable<Client> Clients =>
         new Client[] 
