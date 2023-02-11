@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   
@@ -9,5 +9,25 @@
     <PackageReference Include="Duende.IdentityServer" Version="6.2.0" />
 
     <PackageReference Include="Serilog.AspNetCore" Version="6.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="keys\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Remove="keys\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="keys\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Content Remove="keys\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="keys\is-signing-key-164790B1814B0CF497A4AABE50DC8B88.json" />
   </ItemGroup>
 </Project>
