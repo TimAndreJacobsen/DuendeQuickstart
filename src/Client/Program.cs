@@ -1,12 +1,10 @@
-﻿
-using IdentityModel.Client;
-
+﻿using IdentityModel.Client;
 
 Console.WriteLine("starting . . .");
 
 // discover endpoints from metadata
 var client = new HttpClient();
-var disco = await client.GetDiscoveryDocumentAsync("http://localhost:5001");
+var disco = await client.GetDiscoveryDocumentAsync("https://localhost:5001");
 if (disco.IsError)
 {
     Console.WriteLine(disco.Error);
@@ -14,7 +12,24 @@ if (disco.IsError)
     return;
 }
 
-Console.WriteLine("end");
+Console.WriteLine("Successfully grabbed discoverydocument");
 
-// wait for user input to exit console
-Console.ReadLine();
+
+// request token
+var tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+{
+    Address = disco.TokenEndpoint,
+    ClientId = "client",
+    ClientSecret = "secret",
+    Scope = "apiName"
+});
+
+if (tokenResponse.IsError)
+{
+    Console.WriteLine(tokenResponse.Error);
+    Console.WriteLine("Failed to authenticate");
+    return;
+}
+
+Console.WriteLine("Successfully grabbed accesstoken");
+Console.WriteLine(tokenResponse.AccessToken);
