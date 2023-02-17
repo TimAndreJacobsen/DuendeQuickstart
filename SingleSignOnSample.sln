@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "src\Api\Api.csproj", "{15F49451-1F79-4A2C-A143-01D0F7E5D056}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "src\Client\Client.csproj", "{DC6268DC-8E19-4328-A096-10A9E3D8ED21}"
+	ProjectSection(ProjectDependencies) = postProject
+		{15F49451-1F79-4A2C-A143-01D0F7E5D056} = {15F49451-1F79-4A2C-A143-01D0F7E5D056}
+		{F5C76C8F-E8A7-421B-B51A-B24327AE2C50} = {F5C76C8F-E8A7-421B-B51A-B24327AE2C50}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
