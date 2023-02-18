@@ -1,8 +1,11 @@
 
-
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+namespace Api.Controllers;
+
+
+[ApiController]
 [Route("Identity")]
 [Authorize]
 public class IdentityController : ControllerBase
