@@ -7,7 +7,6 @@ namespace Api.Controllers;
 
 [ApiController]
 [Route("Identity")]
-[Authorize]
 public class IdentityController : ControllerBase
 {
 
