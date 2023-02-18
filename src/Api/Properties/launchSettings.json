@@ -11,7 +11,8 @@
   "profiles": {
     "Api": {
       "commandName": "Project",
-      "launchUrl": "identity",
+      "launchUrl": "swagger",
+      "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
