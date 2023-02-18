@@ -51,3 +51,17 @@ else
     var doc = JsonDocument.Parse(await response.Content.ReadAsStringAsync()).RootElement;
     Console.WriteLine(JsonSerializer.Serialize(doc, new JsonSerializerOptions { WriteIndented = true }));
 }
+
+// get data from weather api
+var weatherResponse = await apiClient.GetAsync("https://localhost:6001/WeatherForecast");
+
+if (!weatherResponse.IsSuccessStatusCode)
+{
+    Console.WriteLine(weatherResponse.StatusCode);
+    Console.WriteLine("failed to get weather forecast");
+}
+else
+{
+    var doc = JsonDocument.Parse(await weatherResponse.Content.ReadAsStringAsync()).RootElement;
+    Console.WriteLine(JsonSerializer.Serialize(doc, new JsonSerializerOptions { WriteIndented = true }));
+}
