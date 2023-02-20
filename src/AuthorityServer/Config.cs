@@ -45,7 +45,7 @@ public static class Config
                 ClientName = "WebApp",
                 
                 // Set up super secret and non-guessable secret
-                ClientSecrets = { new Secret("Secret".Sha256()) },
+                ClientSecrets = { new Secret("secret".Sha256()) },
                 
                 // Allowed grant types
                 AllowedGrantTypes = GrantTypes.Code,

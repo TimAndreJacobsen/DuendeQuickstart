@@ -15,7 +15,7 @@ builder.Services.AddAuthentication(options =>
         options.Authority = "https://localhost:5001";
 
         options.ClientId = "webapp";
-        options.ClientSecret = "Secret";
+        options.ClientSecret = "secret";
         options.ResponseType = "code";
 
         options.Scope.Clear();
