@@ -21,6 +21,7 @@ builder.Services.AddAuthentication(options =>
         options.Scope.Clear();
         options.Scope.Add("openid");
         options.Scope.Add("profile");
+        options.GetClaimsFromUserInfoEndpoint = true;
 
         options.SaveTokens = true;
     });
