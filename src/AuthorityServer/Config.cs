@@ -70,7 +70,7 @@ public static class Config
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
                     "verification",
-                    // "apiName"
+                    "apiName"
                 }
                 
             }
