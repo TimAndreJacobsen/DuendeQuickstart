@@ -43,10 +43,12 @@ internal static class HostingExtensions
         {
             app.UseDeveloperExceptionPage();
         }
+        
+        DatabaseInitializer.InitializeDatabase(app);
 
         app.UseStaticFiles();
         app.UseRouting();
-            
+                    
         app.UseIdentityServer();
 
         app.UseAuthorization();
