@@ -44,6 +44,7 @@ internal static class HostingExtensions
             app.UseDeveloperExceptionPage();
         }
         
+        // Only needed when initially creating the database
         DatabaseInitializer.InitializeDatabase(app);
 
         app.UseStaticFiles();

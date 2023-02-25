@@ -47,7 +47,7 @@ public static class Config
                 // scopes that client has access to
                 AllowedScopes = { "apiName" }
             },
-            new Client
+            new Client // WebClient app
             {
                 // Client name and display name
                 ClientId = "webapp",
