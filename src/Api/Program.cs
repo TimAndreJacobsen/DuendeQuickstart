@@ -22,7 +22,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("ApiScope", policy =>
     {
         policy.RequireAuthenticatedUser();
-        policy.RequireClaim("scope", "apiName");
+        policy.RequireClaim("scope", "weatherApi");
     });
 });
 

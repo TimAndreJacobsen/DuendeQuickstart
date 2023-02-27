@@ -25,7 +25,7 @@ builder.Services.AddAuthentication(options =>
         options.Scope.Add("openid");
         options.Scope.Add("profile");
         options.Scope.Add("verification");
-        options.Scope.Add("apiName");
+        options.Scope.Add("weatherApi");
         options.Scope.Add("offline_access");
 
         options.ClaimActions.MapJsonKey("email_verified", "email_verified");

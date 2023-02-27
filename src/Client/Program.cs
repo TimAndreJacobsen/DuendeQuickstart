@@ -21,7 +21,7 @@ var tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCr
     Address = disco.TokenEndpoint,
     ClientId = "client",
     ClientSecret = "secret",
-    Scope = "apiName"
+    Scope = "weatherApi"
 });
 
 if (tokenResponse.IsError)

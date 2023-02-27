@@ -25,7 +25,8 @@ public static class Config
     public static IEnumerable<ApiScope> ApiScopes =>
         new ApiScope[]
         {
-            new ApiScope(name: "apiName", displayName: "apiDisplayName"),
+            // Weather and Identity listing api
+            new ApiScope(name: "weatherApi", displayName: "apiDisplayName"),
         };
 
     public static IEnumerable<Client> Clients =>
@@ -45,7 +46,7 @@ public static class Config
                 },
 
                 // scopes that client has access to
-                AllowedScopes = { "apiName" }
+                AllowedScopes = { "weatherApi" }
             },
             new Client // WebClient app
             {
@@ -72,7 +73,7 @@ public static class Config
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
                     "verification",
-                    "apiName"
+                    "weatherApi"
                 }
                 
             }
