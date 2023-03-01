@@ -59,6 +59,8 @@ app.UseEndpoints(endpoints =>
     endpoints.MapGet("/local/identity", LocalIdentityHandler)
         .AsBffApiEndpoint();
 
+    endpoints.MapGet("/local/HelloWorld", Greeter).AsBffApiEndpoint();
+
     endpoints.MapRemoteBffApiEndpoint("/remote", "https://localhost:6001")
         .RequireAccessToken(Duende.Bff.TokenType.User);
 
@@ -66,6 +68,7 @@ app.UseEndpoints(endpoints =>
         .RequireAccessToken(Duende.Bff.TokenType.User);
 
 });
+
 
 app.Run();
 
@@ -76,4 +79,9 @@ static IResult LocalIdentityHandler(ClaimsPrincipal user)
 {
     var name = user.FindFirst("name")?.Value ?? user.FindFirst("sub")?.Value;
     return Results.Json(new { message = "Local API Success!", user = name });
+}
+
+static IResult Greeter()
+{
+    return Results.Json(new { message = "Hello World!" });
 }

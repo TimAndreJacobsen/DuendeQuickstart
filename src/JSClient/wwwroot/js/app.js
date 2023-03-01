@@ -42,6 +42,8 @@ document.getElementById("local").addEventListener("click", localApi, false);
 document.getElementById("remote").addEventListener("click", remoteApi, false);
 document.getElementById("logout").addEventListener("click", logout, false);
 document.getElementById("weather").addEventListener("click", weatherApi, false);
+document.getElementById("greeter").addEventListener("click", greeter, false);
+
 function login() {
     window.location = "/bff/login";
 }
@@ -114,5 +116,25 @@ async function weatherApi() {
         log("Weather API Result: " + resp.status, data);
     } catch (e) {
         log("error calling weather API");
+    }
+}
+
+async function greeter() {
+    var req = new Request("/local/helloworld", {
+        headers: new Headers({
+            "X-CSRF": "1",
+        }),
+    });
+
+    try {
+        var resp = await fetch(req);
+
+        let data;
+        if (resp.ok) {
+            data = await resp.json();
+        }
+        log("Greeter API Result: " + resp.status, data);
+    } catch (e) {
+        log("error calling greeter API");
     }
 }
