@@ -8,7 +8,7 @@ public static class Config
 {
     public static IEnumerable<IdentityResource> IdentityResources =>
         new IdentityResource[]
-        { 
+        {
             new IdentityResources.OpenId(),
             new IdentityResources.Profile(),
             new IdentityResource()
@@ -35,7 +35,7 @@ public static class Config
             new Client // minimal machine to machine (m2m) conf
             {
                 ClientId = "client",
-                
+
                 // no interactive user, use the clientid/secret for authentication
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
 
@@ -53,21 +53,21 @@ public static class Config
                 // Client name and display name
                 ClientId = "webapp",
                 ClientName = "WebApp",
-                
+
                 // Set up super secret and non-guessable secret
                 ClientSecrets = { new Secret("secret".Sha256()) },
-                
+
                 // Allowed grant types
                 AllowedGrantTypes = GrantTypes.Code,
-                
+
                 // Where to redirect after login
                 RedirectUris = { "https://localhost:5002/signin-oidc" },
-                
+
                 // Where to redirect after logout
                 PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
-                
+
                 AllowOfflineAccess = true,
-                
+
                 AllowedScopes = new List<string>
                 {
                     IdentityServerConstants.StandardScopes.OpenId,
@@ -75,7 +75,24 @@ public static class Config
                     "verification",
                     "weatherApi"
                 }
-                
+            },
+            new Client // JavaScript BFF client
+            {
+                ClientId = "jsBff",
+                ClientName = "JavaScriptBffClient",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                AllowedGrantTypes = GrantTypes.Code,
+
+                RedirectUris = { "https://localhost:5003/signin-oidc" },
+
+                PostLogoutRedirectUris = { "https://localhost:5003/signout-callback-oidc" },
+
+                AllowedScopes = new List<string>
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "weatherApi"
+                },
             }
         };
 }
