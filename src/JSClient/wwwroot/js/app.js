@@ -41,7 +41,7 @@ document.getElementById("login").addEventListener("click", login, false);
 document.getElementById("local").addEventListener("click", localApi, false);
 document.getElementById("remote").addEventListener("click", remoteApi, false);
 document.getElementById("logout").addEventListener("click", logout, false);
-
+document.getElementById("weather").addEventListener("click", weatherApi, false);
 function login() {
     window.location = "/bff/login";
 }
@@ -58,7 +58,61 @@ function logout() {
 }
 
 async function localApi() {
+    var req = new Request("/local/identity", {
+        headers: new Headers({
+            "X-CSRF": "1",
+        }),
+    });
+
+    try {
+        var resp = await fetch(req);
+
+        let data;
+        if (resp.ok) {
+            data = await resp.json();
+        }
+        log("Local API Result: " + resp.status, data);
+    } catch (e) {
+        log("error calling local API");
+    }
 }
 
 async function remoteApi() {
+    var req = new Request("/remote/identity", {
+        headers: new Headers({
+            "X-CSRF": "1",
+        }),
+    });
+
+    try {
+        var resp = await fetch(req);
+
+        let data;
+        if (resp.ok) {
+            data = await resp.json();
+        }
+        log("Remote API Result: " + resp.status, data);
+    } catch (e) {
+        log("error calling remote API");
+    }
+}
+
+async function weatherApi() {
+    var req = new Request("/WeatherForecast", {
+        headers: new Headers({
+            "X-CSRF": "1",
+        }),
+    });
+
+    try {
+        var resp = await fetch(req);
+
+        let data;
+        if (resp.ok) {
+            data = await resp.json();
+        }
+        log("Weather API Result: " + resp.status, data);
+    } catch (e) {
+        log("error calling weather API");
+    }
 }

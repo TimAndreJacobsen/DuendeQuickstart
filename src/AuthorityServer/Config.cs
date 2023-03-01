@@ -79,7 +79,7 @@ public static class Config
             new Client // JavaScript BFF client
             {
                 ClientId = "jsBff",
-                ClientName = "JavaScriptBffClient",
+                ClientName = "JS with BFF Web App",
                 ClientSecrets = { new Secret("secret".Sha256()) },
                 AllowedGrantTypes = GrantTypes.Code,
 
